@@ -1,0 +1,22 @@
+<div class="section-title desktop-12 mobile-3">
+  <h1>{{ 'general.404.title' | t }}</h1>
+</div>
+
+<div class="desktop-12 tablet-6 mobile-3">
+
+  <label class="subtext">{{ 'general.404.subtext' | t }}</label>
+
+  <div id="search-bar">
+    <form action="/search" method="get">
+      <h3>{{ 'general.search.title' | t }}</h3>
+      <input type="text" name="q" id="q" placeholder="{{ 'general.search.placeholder' | t }}" />
+    </form>
+  </div>
+
+  <div class="clear"></div>
+
+</div>
+
+{% include 'collection-listing' %}
+
+<!--PERZONALIZATION-START Do not modify or delete this comment--><div id="perzonalization" class="perzonalization"></div><script type='text/javascript'>var productDetailsForPrz = {{ product | json }};var basketDetailsForPrz = {{ cart | json }};var filterDetailsForPrz = {{ collection | json }};var detailsForPrz = { userId: '{{ customer.id }}', language: '{{ shop.locale }}', currency:'{{ shop.currency }}' };var searchDetailsForPrz = {{ search.results | json }};if(productDetailsForPrz) { productDetailsForPrz.collections = []; }{% for collection in product.collections %}   if(productDetailsForPrz) { productDetailsForPrz.collections.push("{{ collection.title }}") }{% endfor %}if (filterDetailsForPrz) { filterDetailsForPrz.products = []; }{% for product in collection.products %}   if(filterDetailsForPrz) { filterDetailsForPrz.products.push({ id:"{{ product.id }}", handle:"{{ product.handle }}" }) }{% endfor %}</script><!--Do not modify or delete this comment PERZONALIZATION-END-->
